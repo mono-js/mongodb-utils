@@ -31,7 +31,7 @@ const user = await mongoUtils.utils.get({ usermane: 'terrajs' })
 ### get
 
 ```js
-get(query = { key: value } || string || ObjectID)
+get(query = { key: value } || string || ObjectID): Promise<doc>
 ```
 
 Return a document that match the specific identifier (`_id` by default) or the query:
