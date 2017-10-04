@@ -6,7 +6,7 @@ const { start, stop } = require('@terrajs/mono-test-utils')
 
 const mongoUtils = require('../lib')
 
-const { ObjectID } = require('mongodb')
+const { ObjectID, Collection } = require('mongodb')
 
 const mongoModule = require('@terrajs/mono-mongodb')
 
@@ -29,7 +29,17 @@ function omit(obj, fields) {
 test('Should fail if no collection is passed to the constructor', async (t) => {
 	ctx = await start(join(__dirname, '/fixtures/ok/'))
 
-	const error = t.throws(mongoUtils)
+	const error = t.throws(() => mongoUtils())
+
+	t.is(error.message, 'no-mongo-collection-provided')
+
+	stop(ctx.server)
+})
+
+test('Should fail if not a mongodb collection is passed to the constructor', async (t) => {
+	ctx = await start(join(__dirname, '/fixtures/ok/'))
+
+	const error = t.throws(() => mongoUtils({}))
 
 	t.is(error.message, 'no-mongo-collection-provided')
 
@@ -82,8 +92,8 @@ test('utils.update should return an updated document', async (t) => {
 	const updatedUser = omit(user, ['updatedAt'])
 
 	t.deepEqual(originalUser, updatedUser)
-	t.not(updatedAt.toISOString(), newUpdatedAt.toISOString())
-	t.is(originalUser.createdAt.toISOString(), updatedUser.createdAt.toISOString())
+	t.not(+updatedAt, +newUpdatedAt)
+	t.is(+originalUser.createdAt, +updatedUser.createdAt)
 })
 
 test('utils.find with specific query and no options document(s)', async (t) => {
@@ -136,7 +146,7 @@ test('utils.find with object fields should return a specific document(s)', async
 	t.is(result.length, 1)
 	t.is(Object.keys(result[0]).length, 4)
 	t.is(result[0].username, users[0].username)
-	t.is(result[0].createdAt.toISOString(), users[0].createdAt.toISOString())
+	t.is(+result[0].createdAt, +users[0].createdAt)
 })
 
 test('utils.find with array fields should return a specific document(s)', async (t) => {
@@ -150,7 +160,7 @@ test('utils.find with array fields should return a specific document(s)', async 
 
 	t.is(result.length, 1)
 	t.is(Object.keys(result[0]).length, 2)
-	t.not(result[0].updatedAt.toISOString(), users[0].updatedAt.toISOString())
+	t.not(+result[0].updatedAt, +users[0].updatedAt)
 })
 
 test('utils.remove should remove a document', async (t) => {
@@ -166,3 +176,4 @@ test('utils.remove should remove a document', async (t) => {
 test.after('We close mono server', () => {
 	stop(ctx.server)
 })
+
