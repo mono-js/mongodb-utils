@@ -1,0 +1,52 @@
+{
+  "name": "@terrajs/mongodb-utils",
+  "version": "1.0.0",
+  "description": "Utils for mongodb for nodejs",
+  "main": "lib/",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "lint": "eslint 'lib/*.js'",
+    "test": "npm run lint && nyc ava --verbose --serial test/ && nyc report --reporter=html",
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "preversion": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/terrajs/mongodb-utils.git"
+  },
+  "nyc": {
+    "include": [
+      "lib/"
+    ]
+  },
+  "contributors": [
+    {
+      "name": "Sebastien Chopin (@Atinux)"
+    },
+    {
+      "name": "Benjamin Canac (@benjamincanac)"
+    },
+    {
+      "name": "Gaetan SENN (@gaetansenn)"
+    }
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "mongodb": "^2.2.31"
+  },
+  "devDependencies": {
+    "@terrajs/mono": "^0.4.8",
+    "@terrajs/mono-mongodb": "^2.2.0",
+    "@terrajs/mono-test-utils": "^1.0.4",
+    "ava": "^0.22.0",
+    "codecov": "^2.3.0",
+    "eslint": "^4.7.2",
+    "mongodb": "^2.2.31",
+    "nyc": "^11.1.0",
+    "rimraf": "^2.6.1",
+    "std-mocks": "^1.0.1"
+  },
+  "keywords": []
+}
