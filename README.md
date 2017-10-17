@@ -54,7 +54,7 @@ Insert a document into the collection and add `createdAt` and `updatedAt` proper
 
 ```js
 // Add a document into the collection and return the created document
-const user = await collection.mono.create({ username: 'terrajs' })
+const user = await collection.utils.create({ username: 'terrajs' })
 ```
 
 ### update
