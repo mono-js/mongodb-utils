@@ -34,18 +34,18 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "mongodb": "^2.2.31"
+    "mongodb": "^2.2.0"
   },
   "devDependencies": {
-    "@terrajs/mono": "^0.4.8",
+    "@terrajs/mono": "^0.4.11",
     "@terrajs/mono-mongodb": "^2.2.0",
     "@terrajs/mono-test-utils": "^1.0.4",
     "ava": "^0.22.0",
-    "codecov": "^2.3.0",
-    "eslint": "^4.7.2",
-    "mongodb": "^2.2.31",
-    "nyc": "^11.1.0",
-    "rimraf": "^2.6.1",
+    "codecov": "^2.3.1",
+    "eslint": "^4.9.0",
+    "mongodb": "^2.2.33",
+    "nyc": "^11.2.1",
+    "rimraf": "^2.6.2",
     "std-mocks": "^1.0.1"
   },
   "keywords": []
