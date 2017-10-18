@@ -6,7 +6,7 @@ const { start, stop } = require('@terrajs/mono-test-utils')
 
 const mongoUtils = require('../lib')
 
-const { ObjectID, Collection } = require('mongodb')
+const { ObjectID } = require('mongodb')
 
 const mongoModule = require('@terrajs/mono-mongodb')
 
@@ -77,6 +77,18 @@ test('mono.get should return a document', async (t) => {
 
 	t.deepEqual(user, users[0])
 	t.deepEqual(user2, users[1])
+})
+
+test('mono.get should return a document with only specified fields (Mongo style)', async (t) => {
+	const user = await userCollection.utils.get({ 'username': users[0].username }, { _id: 1 })
+
+	t.deepEqual(Object.keys(user), ['_id'])
+})
+
+test('mono.get should return a document with only specified fields (Array style)', async (t) => {
+	const user = await userCollection.utils.get({ 'username': users[0].username }, ['_id'])
+
+	t.deepEqual(Object.keys(user), ['_id'])
 })
 
 test('utils.update should return an updated document', async (t) => {

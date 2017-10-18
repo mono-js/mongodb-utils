@@ -31,7 +31,7 @@ const user = await mongoUtils.utils.get({ usermane: 'terrajs' })
 ### get
 
 ```js
-get(query = { key: value } || string || ObjectID): Promise<doc>
+get(query = { key: value } || string || ObjectID, fields = {}): Promise<doc>
 ```
 
 Return a document that match the specific identifier (`_id` by default) or the query:
@@ -42,6 +42,11 @@ collection.utils.get('59c0de2dfe8fa448605b1d89')
 
 // Get the document that match the query { username: 'terrajs' }
 collection.utils.get({ username: 'terrajs' })
+
+// Get the document that match the query & return only its _id
+collection.utils.get({ username: 'terrajs' }, { _id: 1 })
+// Get the document that match the query & return only its _id (works with array too)
+collection.utils.get({ username: 'terrajs' }, ['_id'])
 ```
 
 ### create
