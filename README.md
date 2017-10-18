@@ -26,7 +26,7 @@ const collection = mongoUtils(db.collection('users'))
 const user = await collection.utils.get({ usermane: 'terrajs' })
 ```
 
-## Utils
+## Methods
 
 ### get
 
