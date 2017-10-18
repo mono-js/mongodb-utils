@@ -31,7 +31,7 @@ const user = await collection.utils.get({ usermane: 'terrajs' })
 ### get
 
 ```js
-get(query = { key: value } || string || ObjectID, fields = {}): Promise<doc>
+get(query = ({ key: value } || string || ObjectID)[, fields]): Promise<doc>
 ```
 
 Return a document that match the specific identifier (`_id` by default) or the query:
