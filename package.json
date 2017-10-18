@@ -1,5 +1,5 @@
 {
-  "name": "@terrajs/mongodb-utils",
+  "name": "mongodb-utils",
   "version": "1.1.0",
   "description": "Utils for mongodb for nodejs",
   "main": "lib/",

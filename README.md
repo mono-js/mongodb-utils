@@ -2,7 +2,7 @@
 
 MongoDB utils library for node
 
-[![npm version](https://img.shields.io/npm/v/@terrajs/mongodb-utils.svg)](https://www.npmjs.com/package/@terrajs/mongodb-utils)
+[![npm version](https://img.shields.io/npm/v/mongodb-utils.svg)](https://www.npmjs.com/package/mongodb-utils)
 [![Travis](https://img.shields.io/travis/terrajs/mongodb-utils/master.svg)](https://travis-ci.org/terrajs/mongodb-utils)
 [![Coverage](https://img.shields.io/codecov/c/github/terrajs/mongodb-utils/master.svg)](https://codecov.io/gh/terrajs/mongodb-utils.js)
 [![license](https://img.shields.io/github/license/terrajs/mongodb-utils.svg)](https://github.com/terrajs/mongodb-utils/blob/master/LICENSE)
@@ -10,7 +10,7 @@ MongoDB utils library for node
 ## Installation
 
 ```bash
-npm install --save @terrajs/mongodb-utils
+npm install --save mongodb-utils
 ```
 
 ## Usage
@@ -18,7 +18,7 @@ npm install --save @terrajs/mongodb-utils
 MongoDB utils overide the `collection` class by adding an `utils` object that will expose all the MongoDB utils methods:
 
 ```js
-const mongoUtils = require('@terrajs/mongodb-utils')
+const mongoUtils = require('mongodb-utils')
 
 const collection = mongoUtils(db.collection('users'))
 
