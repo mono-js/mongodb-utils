@@ -2,13 +2,15 @@ const test = require('ava')
 
 const { join } = require('path')
 
-const { start, stop } = require('@terrajs/mono-test-utils')
+const { start, stop } = require('mono-test-utils')
 
 const mongoUtils = require('../lib')
 
 const { ObjectID } = require('mongodb')
 
-const mongoModule = require('@terrajs/mono-mongodb')
+const mongoModule = require('mono-mongodb')
+
+console.log('mongoModule', mongoModule.db)
 
 let ctx
 let userCollection
@@ -50,6 +52,8 @@ test('Starting mono and check mongoUtils instance', async (t) => {
 	ctx = await start(join(__dirname, '/fixtures/ok/'))
 
 	userCollection = mongoUtils(mongoModule.db.collection('users'))
+
+	console.log('userCollection', userCollection)
 	t.true(userCollection.utils instanceof Object)
 })
 

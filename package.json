@@ -38,8 +38,8 @@
   },
   "devDependencies": {
     "@terrajs/mono": "^0.4.11",
-    "@terrajs/mono-mongodb": "^2.2.0",
-    "@terrajs/mono-test-utils": "^1.0.4",
+    "mono-mongodb": "^2.3.0",
+    "mono-test-utils": "^1.1.0",
     "ava": "^0.22.0",
     "codecov": "^2.3.1",
     "eslint": "^4.9.0",

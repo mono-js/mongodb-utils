@@ -1,10 +1,10 @@
 module.exports = {
 	mono: {
 		modules: [
-			'@terrajs/mono-mongodb'
+			'mono-mongodb'
 		],
 		mongodb: {
-			url: 'mongodb://localhost:27017/mongodb-util',
+			url: 'mongodb://localhost:27017/mongodb-utils',
 			dropDatabase: true
 		}
 	}
