@@ -109,6 +109,21 @@ test('utils.update should return an updated document', async (t) => {
 	t.is(+originalUser.createdAt, +updatedUser.createdAt)
 })
 
+test('utils.upsert should return an updated document or create it if not exist', async (t) => {
+	t.true(userCollection.utils.upsert instanceof Function)
+
+	const originalUser = { username: 'test4' }
+
+	let user = await userCollection.utils.upsert(ObjectID(), originalUser)
+	let newUser = await userCollection.utils.get(user._id)
+
+	const createdUser = omit(newUser, ['updatedAt', 'createdAt'])
+
+	users.push(createdUser)
+	t.is(user.username, createdUser.username)
+	t.true(newUser.createdAt instanceof Date)
+})
+
 test('utils.find with specific query and no options document(s)', async (t) => {
 	t.true(userCollection.utils.find instanceof Function)
 
@@ -118,7 +133,7 @@ test('utils.find with specific query and no options document(s)', async (t) => {
 
 	let result = await request.toArray()
 
-	t.is(result.length, 2)
+	t.is(result.length, 3)
 })
 
 test('utils.find with specific query and pagination document(s)', async (t) => {
@@ -143,8 +158,8 @@ test('utils.find with specific query and sorted by order', async (t) => {
 
 	let result = await request.toArray()
 
-	t.is(result.length, 2)
-	t.is(result[0].username, users[1].username)
+	t.is(result.length, 3)
+	t.is(result[0].username, users[2].username)
 })
 
 test('utils.find with object fields should return a specific document(s)', async (t) => {

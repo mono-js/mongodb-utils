@@ -78,6 +78,23 @@ await collection.utils.update('59c0de2dfe8fa448605b1d89', { username: 'terrajs2'
 await collection.utils.update({ username: 'terrajs2' }, { username: 'terrajs' })
 ```
 
+### upsert
+
+```js
+upsert(query = { key: value } || string || ObjectID, doc): Promise<doc>
+```
+
+Update or create a document if not exist
+Add the `createdAt` if document not exist
+
+```js
+// Update the document that match the query { _id: ObjectID('59c0de2dfe8fa448605b1d89') } and update its username or create it if not exist
+await collection.utils.update('59c0de2dfe8fa448605b1d89', { username: 'terrajs2' })
+
+// Update the document that match the query { username: 'terrajs2' } and update its username or create it if not exist
+await collection.utils.update({ username: 'terrajs2' }, { username: 'terrajs' })
+```
+
 ### remove
 
 ```js
