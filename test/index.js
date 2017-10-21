@@ -10,8 +10,6 @@ const { ObjectID } = require('mongodb')
 
 const mongoModule = require('mono-mongodb')
 
-console.log('mongoModule', mongoModule.db)
-
 let ctx
 let userCollection
 let users = [{
@@ -53,7 +51,6 @@ test('Starting mono and check mongoUtils instance', async (t) => {
 
 	userCollection = mongoUtils(mongoModule.db.collection('users'))
 
-	console.log('userCollection', userCollection)
 	t.true(userCollection.utils instanceof Object)
 })
 
@@ -73,7 +70,7 @@ test('utils.create should create a new document', async (t) => {
 	Object.assign(users[1], user2)
 })
 
-test('mono.get should return a document', async (t) => {
+test('utils.get should return a document', async (t) => {
 	t.true(userCollection.utils.get instanceof Function)
 
 	const user = await userCollection.utils.get({ 'username': users[0].username })
@@ -83,13 +80,13 @@ test('mono.get should return a document', async (t) => {
 	t.deepEqual(user2, users[1])
 })
 
-test('mono.get should return a document with only specified fields (Mongo style)', async (t) => {
+test('utils.get should return a document with only specified fields (Mongo style)', async (t) => {
 	const user = await userCollection.utils.get({ 'username': users[0].username }, { _id: 1 })
 
 	t.deepEqual(Object.keys(user), ['_id'])
 })
 
-test('mono.get should return a document with only specified fields (Array style)', async (t) => {
+test('utils.get should return a document with only specified fields (Array style)', async (t) => {
 	const user = await userCollection.utils.get({ 'username': users[0].username }, ['_id'])
 
 	t.deepEqual(Object.keys(user), ['_id'])
