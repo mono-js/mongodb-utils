@@ -52,7 +52,7 @@ collection.utils.get({ username: 'terrajs' }, ['_id'])
 ### create
 
 ```js
-create(doc): Promise<doc>
+create(doc: object): Promise<doc>
 ```
 
 Insert a document into the collection and add `createdAt` and `updatedAt` properties:
@@ -65,7 +65,7 @@ const user = await collection.utils.create({ username: 'terrajs' })
 ### update
 
 ```js
-update(query = { key: value } || string || ObjectID, doc): Promise<doc>
+update(query = { key: value } || string || ObjectID, doc: object): Promise<doc>
 ```
 
 Update a specific document and update the `updatedAt` value
@@ -81,7 +81,7 @@ await collection.utils.update({ username: 'terrajs2' }, { username: 'terrajs' })
 ### upsert
 
 ```js
-upsert(query = { key: value } || string || ObjectID, doc): Promise<doc>
+upsert(query = { key: value } || string || ObjectID, doc: object): Promise<doc>
 ```
 
 Update or create a document if not exist
@@ -89,10 +89,10 @@ Add the `createdAt` if document not exist
 
 ```js
 // Update the document that match the query { _id: ObjectID('59c0de2dfe8fa448605b1d89') } and update its username or create it if not exist
-await collection.utils.update('59c0de2dfe8fa448605b1d89', { username: 'terrajs2' })
+await collection.utils.upsert('59c0de2dfe8fa448605b1d89', { username: 'terrajs2' })
 
-// Update the document that match the query { username: 'terrajs2' } and update its username or create it if not exist
-await collection.utils.update({ username: 'terrajs2' }, { username: 'terrajs' })
+// Update the document that match the query { username: 'terrajs2' } and update its username OR create it if not found
+await collection.utils.upsert({ username: 'terrajs2' }, { username: 'terrajs' })
 ```
 
 ### remove
@@ -114,7 +114,7 @@ collection.utils.remove({ username: 'test' })
 ### find
 
 ```js
-find(query = { key: value } || string || ObjectID, [options = { fields: ..., limit: ..., offset: ..., sort: ... }]): Promise<cursor>
+find(query = { key: value } || string || ObjectID, [options = { fields: ..., limit: ..., offset: ..., sort: ... }]): cursor
 ```
 The find method return a mongo cursor from a specific query and options.
 
