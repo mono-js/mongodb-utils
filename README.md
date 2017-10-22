@@ -28,6 +28,13 @@ const user = await collection.utils.get({ usermane: 'terrajs' })
 
 ## Methods
 
+- [get](#get)
+- [create](#create)
+- [update](#update)
+- [upsert](#upsert)
+- [remove](#remove)
+- [find](#find)
+
 ### get
 
 ```js
