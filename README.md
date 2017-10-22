@@ -1,6 +1,6 @@
-# mongodb-utils
+<h1 align="left"><img src="https://user-images.githubusercontent.com/904724/31862892-1f7430be-b746-11e7-95d7-2ecab47d033a.png" width="350" alt="MongoDB Utils"/></h1>
 
-MongoDB utils library for node
+> MongoDB utils for Node.js
 
 [![npm version](https://img.shields.io/npm/v/mongodb-utils.svg)](https://www.npmjs.com/package/mongodb-utils)
 [![Travis](https://img.shields.io/travis/terrajs/mongodb-utils/master.svg)](https://travis-ci.org/terrajs/mongodb-utils)
