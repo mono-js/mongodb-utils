@@ -132,11 +132,11 @@ Options:
   - `sort`: Sort criteria (same as `sort` method from mongo cursor), default: `{}`
 
 ```js
-// We find document that match the query { username: new RegExp(/^test/g) }, options with { username: 1, createdAt: 1 } projection and limit at 1 element
-const request = await userCollection.mono.find({
+// Find documents that matches the query { username: new RegExp(/^test/g) }, options with { username: 1, createdAt: 1 } projection and limit at 10 elements
+const users = await userCollection.mono.find({
   username: new RegExp(/^test/g)
 }, {
   fields: ['username', 'createdAt'],
-  limit: 1
-})
+  limit: 10
+}).toArray()
 ```
