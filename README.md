@@ -1,4 +1,4 @@
-<h1 align="left"><img src="https://user-images.githubusercontent.com/904724/31862915-8a718272-b746-11e7-912f-9ad658a96907.png" width="300" alt="MongoDB Utils"/></h1>
+<h1 align="left"><img src="https://user-images.githubusercontent.com/904724/31862915-8a718272-b746-11e7-912f-9ad658a96907.png" alt="MongoDB Utils"/></h1>
 
 > MongoDB utils for Node.js
 
