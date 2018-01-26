@@ -23,7 +23,7 @@ const mongoUtils = require('mongodb-utils')
 const collection = mongoUtils(db.collection('users'))
 
 // We can now access to mongodb-utils method from .utils
-const user = await collection.utils.get({ usermane: 'terrajs' })
+const user = await collection.utils.get({ username: 'terrajs' })
 ```
 
 ## Methods
