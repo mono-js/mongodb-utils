@@ -4,7 +4,7 @@
 
 [![npm version](https://img.shields.io/npm/v/mongodb-utils.svg)](https://www.npmjs.com/package/mongodb-utils)
 [![Travis](https://img.shields.io/travis/terrajs/mongodb-utils/master.svg)](https://travis-ci.org/terrajs/mongodb-utils)
-[![Coverage](https://img.shields.io/codecov/c/github/terrajs/mongodb-utils/master.svg)](https://codecov.io/gh/terrajs/mongodb-utils.js)
+[![Coverage](https://img.shields.io/codecov/c/github/terrajs/mongodb-utils.svg)](https://codecov.io/gh/terrajs/mongodb-utils)
 [![license](https://img.shields.io/github/license/terrajs/mongodb-utils.svg)](https://github.com/terrajs/mongodb-utils/blob/master/LICENSE)
 
 ## Installation
