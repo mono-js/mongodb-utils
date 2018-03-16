@@ -40,7 +40,7 @@
     "@terrajs/mono": "0.9.1",
     "ava": "0.24.0",
     "codecov": "3.0.0",
-    "eslint": "4.16.0",
+    "eslint": "4.19.0",
     "mongodb": "3.0.1",
     "mono-mongodb": "2.3.1",
     "mono-test-utils": "1.2.3",
